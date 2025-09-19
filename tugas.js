@@ -44,6 +44,7 @@ class MahasiswaBeasiswa extends Mahasiswa {
     super(nama, nilai, jurusan);
     this.beasiswa = true;
   }
+
 }
 
 // Asynchronous dengan Promise============================
@@ -52,13 +53,9 @@ class MahasiswaBeasiswa extends Mahasiswa {
 function getMahasiswa() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const success = false; // Ubah false jika dibuat error
+      const success = true; // Ubah false jika dibuat error
       if (success) {
-        resolve([    
-          { id: 1, nama: 'Andi' },
-          { id: 2, nama: 'Budi' },
-          { id: 3, nama: 'Citra' }
-        ]);
+        resolve(mahasiswa);
       } else {
         reject('Gagal mengambil data mahasiswa');
       }
@@ -81,7 +78,7 @@ async function fetchMahasiswa() {
     const data = await getMahasiswa();
     console.log('Data berhasil diambil dari server:', data);
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error:', error);    
   }
 }
 
